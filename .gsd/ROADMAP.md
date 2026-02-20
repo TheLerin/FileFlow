@@ -23,7 +23,7 @@
 **Objective**: Implement Canvas API tools for image manipulation and conversion. Includes: Image to PDF, PDF to Image, WebP to JPG, Image Compressor, Resize, Crop, HEIC to JPG (`heic2any`).bP ↔ JPG, and PDF to JPG/PNG (using pdf.js to render).
 
 ### Phase 4: Office/Data Document Conversion (SheetJS / Mammoth)
-**Status**: ⬜ Not Started
+**Status**: ✅ Complete
 **Objective**: Implement Excel ↔ CSV, Excel ↔ JSON, XLS → XLSX, and Word (DOCX) → TXT/HTML.
 
 ### Phase 5: Polish, Optimization & Launch

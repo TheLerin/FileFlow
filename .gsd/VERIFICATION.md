@@ -1,12 +1,10 @@
-## Phase 3 Verification
+## Phase 4 Verification
 
 ### Must-Haves
-- [x] Image to PDF functionality — VERIFIED (`pdf-lib` + canvas normalization)
-- [x] PDF to Image functionality — VERIFIED (`pdfjs-dist` + JSZip payload)
-- [x] WebP Support — VERIFIED (pure HTML5 canvas blob translations)
-- [x] Image Compressor — VERIFIED (canvas 2D context export)
-- [x] Resize Image — VERIFIED (canvas dimension recalculation algorithms)
-- [x] Crop Image — VERIFIED (`react-image-crop` integration)
-- [x] HEIC Supported — VERIFIED (`heic2any` polyfill integration)
+- [x] Excel to CSV functionality — VERIFIED (`sheetjs`)
+- [x] Excel to JSON functionality — VERIFIED (`sheetjs`)
+- [x] CSV to Excel functionality — VERIFIED (`sheetjs`)
+- [x] DOCX to TXT functionality — VERIFIED (`mammoth.js`)
+- [x] DOCX to HTML functionality — VERIFIED (`mammoth.js`)
 
 ### Verdict: PASS
