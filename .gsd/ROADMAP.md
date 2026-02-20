@@ -11,7 +11,7 @@
 ## Phases
 
 ### Phase 1: Foundation & Project Setup
-**Status**: ⬜ Not Started
+**Status**: ✅ Complete
 **Objective**: Scaffold the Next.js application, setup Tailwind CSS, configure the routing structure for the tool categories, and build the main landing/hub page. Establish the core UI components (buttons, drag-and-drop zones, cards).
 
 ### Phase 2: Core PDF Operations (pdf-lib)
