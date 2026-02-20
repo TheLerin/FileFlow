@@ -54,11 +54,10 @@ export default function CodeToImagePage() {
                 backgroundColor: theme === "dark" ? "#1e1e1e" : "#ffffff",
             });
 
-            canvas.toBlob((blob) => {
-                if (blob) {
-                    downloadFileBlob(blob, `code-snippet_${Date.now()}.png`);
-                }
-            }, "image/png");
+            const blob = await new Promise<Blob | null>((resolve) => canvas.toBlob(resolve, "image/png"));
+            if (blob) {
+                downloadFileBlob(blob, `code-snippet_${Date.now()}.png`);
+            }
 
         } catch (err: any) {
             console.error(err);

@@ -33,12 +33,11 @@ export default function CompressImagePage() {
                 ctx.drawImage(img, 0, 0);
 
                 // Convert to quality scale 0.0 to 1.0 using standard JPEG compression
-                canvas.toBlob((blob) => {
-                    if (blob) {
-                        const baseName = file.name.replace(/\.[^/.]+$/, "");
-                        downloadFileBlob(blob, `${baseName}_compress.jpg`);
-                    }
-                }, "image/jpeg", quality / 100);
+                const blob = await new Promise<Blob | null>((resolve) => canvas.toBlob(resolve, "image/jpeg", quality / 100));
+                if (blob) {
+                    const baseName = file.name.replace(/\.[^/.]+$/, "");
+                    downloadFileBlob(blob, `${baseName}_compress.jpg`);
+                }
             }
 
         } catch (err: any) {

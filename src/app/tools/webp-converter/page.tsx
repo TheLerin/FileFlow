@@ -35,12 +35,11 @@ export default function WebpConverterPage() {
 
                 const extension = targetFormat === "image/jpeg" ? "jpg" : "png";
 
-                canvas.toBlob((blob) => {
-                    if (blob) {
-                        const baseName = file.name.replace(/\.[^/.]+$/, "");
-                        downloadFileBlob(blob, `${baseName}.${extension}`);
-                    }
-                }, targetFormat, targetFormat === "image/jpeg" ? 0.95 : 1);
+                const blob = await new Promise<Blob | null>((resolve) => canvas.toBlob(resolve, targetFormat, targetFormat === "image/jpeg" ? 0.95 : 1));
+                if (blob) {
+                    const baseName = file.name.replace(/\.[^/.]+$/, "");
+                    downloadFileBlob(blob, `${baseName}.${extension}`);
+                }
             }
 
         } catch (err: any) {

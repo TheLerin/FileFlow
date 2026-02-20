@@ -68,12 +68,11 @@ export default function ResizeImagePage() {
             const outMime = file.type === "image/png" ? "image/png" : "image/jpeg";
             const ext = outMime === "image/png" ? "png" : "jpg";
 
-            canvas.toBlob((blob) => {
-                if (blob) {
-                    const baseName = file.name.replace(/\.[^/.]+$/, "");
-                    downloadFileBlob(blob, `${baseName}_resized.${ext}`);
-                }
-            }, outMime, 0.95);
+            const blob = await new Promise<Blob | null>((resolve) => canvas.toBlob(resolve, outMime, 0.95));
+            if (blob) {
+                const baseName = file.name.replace(/\.[^/.]+$/, "");
+                downloadFileBlob(blob, `${baseName}_resized.${ext}`);
+            }
 
         } catch (err: any) {
             console.error(err);

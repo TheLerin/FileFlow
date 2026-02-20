@@ -64,13 +64,14 @@ export default function FileUploadArea({
                 padding: "48px 32px",
                 textAlign: "center",
                 cursor: "pointer",
-                borderRadius: "16px",
-                border: `2px dashed ${isDragging ? "rgba(66,133,244,0.6)" : "rgba(255,255,255,0.10)"}`,
+                borderRadius: "var(--radius-card)",
+                border: `2px dashed ${isDragging ? "var(--neon-violet)" : "var(--border-mid)"}`,
                 background: isDragging
-                    ? "rgba(66,133,244,0.06)"
-                    : "rgba(255,255,255,0.02)",
-                transition: "all 0.25s ease",
-                boxShadow: isDragging ? "0 0 40px -10px rgba(66,133,244,0.4)" : "none",
+                    ? "rgba(139, 92, 246, 0.05)"
+                    : "var(--bg-card)",
+                transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
+                boxShadow: isDragging ? "0 0 40px -10px var(--glow-violet)" : "0 4px 20px -5px rgba(0,0,0,0.3)",
+                backdropFilter: "blur(12px)",
             }}
         >
             <input
@@ -82,47 +83,50 @@ export default function FileUploadArea({
                     position: "absolute", inset: 0,
                     width: "100%", height: "100%",
                     opacity: 0, cursor: "pointer",
+                    zIndex: 10
                 }}
                 title="Upload Files"
             />
 
             {/* Icon */}
             <div style={{
-                width: "64px", height: "64px",
-                borderRadius: "16px",
-                background: isDragging ? "rgba(66,133,244,0.2)" : "rgba(255,255,255,0.04)",
-                border: `1px solid ${isDragging ? "rgba(66,133,244,0.4)" : "rgba(255,255,255,0.10)"}`,
+                width: "72px", height: "72px",
+                borderRadius: "18px",
+                background: isDragging ? "linear-gradient(135deg, rgba(6, 182, 212, 0.15), rgba(139, 92, 246, 0.15))" : "linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01))",
+                border: `1px solid ${isDragging ? "rgba(139, 92, 246, 0.4)" : "var(--border-soft)"}`,
                 display: "flex", alignItems: "center", justifyContent: "center",
-                marginBottom: "20px",
-                transition: "all 0.25s ease",
-                boxShadow: isDragging ? "0 0 24px -6px rgba(66,133,244,0.5)" : "none",
+                marginBottom: "24px",
+                transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
+                boxShadow: isDragging ? "0 0 24px -6px var(--glow-violet), inset 0 1px 0 rgba(255,255,255,0.1)" : "inset 0 1px 0 rgba(255,255,255,0.05)",
+                transform: isDragging ? "scale(1.1) translateY(-4px)" : "scale(1)",
             }}>
-                <UploadCloud size={28} color={isDragging ? "#4285F4" : "rgba(255,255,255,0.4)"} />
+                <UploadCloud size={32} color={isDragging ? "var(--neon-cyan)" : "var(--text-secondary)"} />
             </div>
 
             <h3 style={{
-                fontSize: "1rem", fontWeight: 700,
-                color: "rgba(255,255,255,0.85)",
+                fontSize: "1.1rem", fontWeight: 600,
+                color: isDragging ? "#fff" : "var(--text-primary)",
                 marginBottom: "8px", letterSpacing: "-0.01em",
+                transition: "color 0.3s ease"
             }}>
                 Drop {multiple ? "files" : "a file"} here, or click to browse
             </h3>
             <p style={{
-                fontSize: "0.8rem",
-                color: "rgba(255,255,255,0.3)",
+                fontSize: "0.85rem",
+                color: "var(--text-secondary)",
                 lineHeight: 1.6,
             }}>
                 All processing happens locally on your device.
-                <br />No uploads. No servers. Complete privacy.
+                <br />No uploads. Complete privacy.
             </p>
 
             {accept !== "*" && (
                 <div style={{
-                    marginTop: "16px", padding: "4px 12px",
+                    marginTop: "24px", padding: "6px 16px",
                     borderRadius: "999px",
-                    background: "rgba(66,133,244,0.08)",
-                    border: "1px solid rgba(66,133,244,0.2)",
-                    fontSize: "0.72rem", color: "rgba(66,133,244,0.8)",
+                    background: "rgba(139, 92, 246, 0.1)",
+                    border: "1px solid rgba(139, 92, 246, 0.2)",
+                    fontSize: "0.75rem", color: "var(--neon-violet)",
                     fontWeight: 600, letterSpacing: "0.05em",
                 }}>
                     Accepts: {accept}

@@ -5,53 +5,57 @@ export default function Footer() {
     return (
         <footer style={{
             width: '100%',
-            background: 'rgba(8,12,20,0.95)',
-            borderTop: '1px solid rgba(255,255,255,0.07)',
+            background: 'transparent',
             marginTop: 'auto',
+            position: 'relative',
+            zIndex: 10
         }}>
+            {/* Subtle top glow line */}
+            <div style={{ height: '1px', background: 'linear-gradient(90deg, transparent, var(--border-soft), transparent)' }} />
+
             <div style={{
                 maxWidth: '1280px', margin: '0 auto',
-                padding: '32px 24px',
-                display: 'flex', flexDirection: 'column', gap: '24px',
+                padding: '48px 24px',
+                display: 'flex', flexDirection: 'column', gap: '32px',
             }}>
                 {/* Top row */}
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '16px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '24px' }}>
                     {/* Brand */}
-                    <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: '8px', textDecoration: 'none' }}>
+                    <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: '12px', textDecoration: 'none' }}>
                         <div style={{
-                            width: '28px', height: '28px', borderRadius: '8px',
-                            background: 'linear-gradient(135deg, #2563eb, #4285F4)',
+                            width: '32px', height: '32px', borderRadius: '10px',
+                            background: 'linear-gradient(135deg, var(--neon-cyan), var(--neon-violet))',
                             display: 'flex', alignItems: 'center', justifyContent: 'center',
+                            boxShadow: '0 4px 12px rgba(0,0,0,0.5)',
                         }}>
-                            <Zap size={14} color="#fff" fill="#fff" />
+                            <Zap size={16} color="#fff" fill="#fff" />
                         </div>
-                        <span style={{ fontWeight: 800, fontSize: '0.95rem', color: 'rgba(255,255,255,0.8)', letterSpacing: '-0.01em' }}>FileFlow</span>
+                        <span style={{ fontWeight: 800, fontSize: '1.05rem', color: 'var(--text-primary)', letterSpacing: '-0.02em' }}>FileFlow</span>
                     </Link>
 
                     {/* Privacy badge */}
                     <div style={{
-                        display: 'flex', alignItems: 'center', gap: '8px',
-                        padding: '7px 16px', borderRadius: '999px',
-                        background: 'rgba(52,168,83,0.08)',
-                        border: '1px solid rgba(52,168,83,0.25)',
+                        display: 'flex', alignItems: 'center', gap: '10px',
+                        padding: '10px 20px', borderRadius: '999px',
+                        background: 'var(--bg-card)',
+                        border: '1px solid var(--border-soft)',
+                        backdropFilter: 'blur(12px)'
                     }}>
-                        <ShieldCheck size={15} color="#4ade80" />
-                        <span style={{ fontSize: '0.78rem', fontWeight: 600, color: '#4ade80' }}>100% Client-Side</span>
-                        <span style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.35)' }}>· Zero server uploads · Total privacy</span>
+                        <ShieldCheck size={16} color="var(--neon-cyan)" />
+                        <span style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--neon-cyan)' }}>100% Client-Side</span>
+                        <div style={{ width: '1px', height: '14px', background: 'var(--border-mid)', margin: '0 4px' }} />
+                        <span style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>Zero server uploads</span>
                     </div>
                 </div>
 
-                {/* Divider */}
-                <div style={{ height: '1px', background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.07), transparent)' }} />
-
                 {/* Bottom row */}
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px' }}>
-                    <span style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.25)' }}>
-                        © {new Date().getFullYear()} FileFlow. All file processing runs locally in your browser.
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '16px' }}>
+                    <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
+                        © {new Date().getFullYear()} FileFlow. Designed for extreme privacy and performance.
                     </span>
-                    <div style={{ display: 'flex', gap: '4px' }}>
-                        {['#4285F4', '#EA4335', '#FBBC05', '#34A853'].map((c, i) => (
-                            <div key={i} style={{ width: '6px', height: '6px', borderRadius: '50%', background: c, opacity: 0.7 }} />
+                    <div style={{ display: 'flex', gap: '6px' }}>
+                        {['var(--neon-cyan)', 'var(--neon-blue)', 'var(--neon-violet)', 'var(--neon-pink)'].map((c, i) => (
+                            <div key={i} style={{ width: '6px', height: '6px', borderRadius: '50%', background: c, boxShadow: `0 0 8px ${c}` }} />
                         ))}
                     </div>
                 </div>

@@ -3,10 +3,10 @@ import ToolCard from "@/components/ui/ToolCard";
 import { FileLock2, ShieldCheck, Zap } from "lucide-react";
 
 const SECTION_COLORS: Record<string, string> = {
-  "PDF Utilities": "#4285F4",
-  "Image Utilities": "#EA4335",
-  "Office & Data Utilities": "#FBBC05",
-  "Developer & Data Science": "#34A853",
+  "PDF Utilities": "var(--neon-violet)",
+  "Image Utilities": "var(--neon-pink)",
+  "Office & Data Utilities": "var(--neon-cyan)",
+  "Developer & Data Science": "var(--neon-blue)",
 };
 
 const SECTIONS = [
@@ -42,106 +42,108 @@ export default function Home() {
       {/* ── HERO ── */}
       <section style={{
         maxWidth: "1280px", margin: "0 auto",
-        padding: "80px 24px 64px",
+        padding: "120px 24px 80px",
         display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center",
       }}>
 
         {/* Top badge */}
-        <div className="hero-badge">
-          <Zap size={11} />
-          <span>Client-Side · Zero Uploads · Instant Processing</span>
+        <div className="hero-badge fade-in-up" style={{ animationDelay: '0ms' }}>
+          <Zap size={14} color="var(--neon-cyan)" />
+          <span className="gradient-text-blue">The Ultimate Local-First Toolset</span>
         </div>
 
         {/* Headline */}
-        <h1 style={{
-          fontSize: "clamp(2.4rem, 6vw, 4rem)",
+        <h1 className="fade-in-up" style={{
+          fontSize: "clamp(2.8rem, 8vw, 5.5rem)",
           fontWeight: 900,
-          letterSpacing: "-0.03em",
-          lineHeight: 1.1,
-          maxWidth: "820px",
-          color: "#f0f6ff",
-          marginBottom: "20px",
+          letterSpacing: "-0.04em",
+          lineHeight: 1.05,
+          maxWidth: "1000px",
+          color: "var(--text-primary)",
+          marginBottom: "24px",
+          animationDelay: '100ms'
         }}>
-          The{" "}
-          <span className="gradient-text-google">professional toolkit</span>
-          {" "}for all your files.
+          Everything you need.<br />
+          <span className="gradient-text-elite">Nothing leaves your device.</span>
         </h1>
 
         {/* Subtext */}
-        <p style={{
-          fontSize: "1.05rem",
-          color: "rgba(255,255,255,0.45)",
-          maxWidth: "560px",
-          lineHeight: 1.7,
+        <p className="fade-in-up" style={{
+          fontSize: "1.2rem",
+          color: "var(--text-secondary)",
+          maxWidth: "600px",
+          lineHeight: 1.6,
           fontWeight: 400,
-          marginBottom: "40px",
+          marginBottom: "48px",
+          animationDelay: '200ms'
         }}>
-          Convert, compress, merge, extract — entirely on your device.
-          <br />Zero data leaves your browser. Ever.
+          An ultra-fast suite of over 30 utilities to convert, compress, merge, and extract data — instantly running inside your browser.
         </p>
 
         {/* Stats row */}
-        <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", justifyContent: "center" }}>
+        <div className="fade-in-up" style={{ display: "flex", gap: "16px", flexWrap: "wrap", justifyContent: "center", animationDelay: '300ms' }}>
           {[
-            { icon: <ShieldCheck size={14} />, label: "30+ tools", accent: "#4285F4" },
-            { icon: <FileLock2 size={14} />, label: "No server uploads", accent: "#34A853" },
-            { icon: <Zap size={14} />, label: "Instant results", accent: "#FBBC05" },
-          ].map(({ icon, label, accent }, i) => (
-            <div key={i} className="stat-pill" style={{ borderColor: `${accent}30`, background: `${accent}0D`, color: accent }}>
-              {icon}
-              <strong style={{ color: accent }}>{label}</strong>
+            { icon: <ShieldCheck size={16} />, label: "100% Client-Side", color: "var(--neon-cyan)" },
+            { icon: <FileLock2 size={16} />, label: "Zero Server Uploads", color: "var(--neon-violet)" },
+            { icon: <Zap size={16} />, label: "Instant Execution", color: "var(--neon-pink)" },
+          ].map(({ icon, label, color }, i) => (
+            <div key={i} className="stat-pill">
+              <span style={{ color }}>{icon}</span>
+              <strong>{label}</strong>
             </div>
           ))}
         </div>
 
         {/* Hero gradient line */}
-        <div style={{
-          marginTop: "56px",
-          width: "100%", maxWidth: "600px", height: "1px",
-          background: "linear-gradient(90deg, transparent, rgba(66,133,244,0.4), rgba(234,67,53,0.3), rgba(251,188,5,0.3), rgba(52,168,83,0.3), transparent)",
+        <div className="fade-in-up" style={{
+          marginTop: "80px",
+          width: "100%", maxWidth: "800px", height: "1px",
+          background: "linear-gradient(90deg, transparent, var(--neon-cyan), var(--neon-violet), var(--neon-pink), transparent)",
+          opacity: 0.5,
+          animationDelay: '400ms'
         }} />
       </section>
 
-      {/* ── TOOL SECTIONS ── */}
-      <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 24px 80px" }}>
+      {/* ── TOOL SECTIONS (BENTO STYLE) ── */}
+      <div className="fade-in-up" style={{ maxWidth: "1400px", margin: "0 auto", padding: "0 24px 100px", animationDelay: '500ms' }}>
         {SECTIONS.map(({ label, filter }) => {
           const tools = TOOLS.filter(t => filter(t.id));
-          const accent = SECTION_COLORS[label] || "#4285F4";
+          const accentColor = SECTION_COLORS[label] || "var(--neon-violet)";
           return (
-            <section key={label} style={{ marginBottom: "56px" }}>
-              {/* Section header */}
-              <div style={{ display: "flex", alignItems: "center", gap: "14px", marginBottom: "24px" }}>
+            <section key={label} style={{ marginBottom: "80px" }}>
+              {/* Section header modified for dark space */}
+              <div style={{ display: "flex", alignItems: "center", gap: "16px", marginBottom: "32px", paddingLeft: "8px" }}>
                 <div style={{
-                  width: "8px", height: "8px", borderRadius: "50%",
-                  background: accent,
-                  boxShadow: `0 0 12px 3px ${accent}60`,
+                  width: "10px", height: "10px", borderRadius: "50%",
+                  background: accentColor,
+                  boxShadow: `0 0 16px 4px ${accentColor}80`,
                   flexShrink: 0,
                 }} />
                 <h2 style={{
-                  fontSize: "0.8rem", fontWeight: 700,
-                  letterSpacing: "0.12em", textTransform: "uppercase",
-                  color: "rgba(255,255,255,0.5)",
+                  fontSize: "1.1rem", fontWeight: 700,
+                  letterSpacing: "0.15em", textTransform: "uppercase",
+                  color: "var(--text-primary)",
                   whiteSpace: "nowrap",
                 }}>
                   {label}
                 </h2>
                 <div style={{
                   flex: 1, height: "1px",
-                  background: `linear-gradient(90deg, ${accent}30, transparent)`,
+                  background: `linear-gradient(90deg, rgba(255,255,255,0.1), transparent)`,
                 }} />
                 <span style={{
-                  fontSize: "0.72rem", color: "rgba(255,255,255,0.2)",
-                  fontWeight: 500,
+                  fontSize: "0.8rem", color: "var(--text-muted)",
+                  fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.1em"
                 }}>
-                  {tools.length} tools
+                  {tools.length} Tools
                 </span>
               </div>
 
-              {/* Tool grid */}
+              {/* Bento Grid */}
               <div style={{
                 display: "grid",
-                gridTemplateColumns: "repeat(auto-fill, minmax(180px, 1fr))",
-                gap: "16px",
+                gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))",
+                gap: "24px",
               }}>
                 {tools.map(tool => (
                   <ToolCard key={tool.id} {...tool} />
