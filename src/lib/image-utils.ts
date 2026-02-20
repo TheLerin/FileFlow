@@ -1,5 +1,3 @@
-import heic2any from "heic2any";
-
 /**
  * Converts a File object (e.g., from an input type="file" or drag-and-drop) into an HTMLImageElement.
  */
@@ -40,6 +38,8 @@ export async function getProcessableImageUrl(file: File): Promise<string> {
     // Transparently convert HEIC files
     if (file.type === "image/heic" || file.type === "image/heif" || file.name.toLowerCase().endsWith(".heic")) {
         try {
+            const heic2anyModule = await import("heic2any");
+            const heic2any = heic2anyModule.default;
             const converted = await heic2any({ blob: file, toType: "image/jpeg" });
             blobToProcess = Array.isArray(converted) ? converted[0] : converted;
         } catch (e) {

@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import heic2any from "heic2any";
 import FileUploadArea from "@/components/ui/FileUploadArea";
 import { downloadFileBlob } from "@/lib/image-utils";
 import { Loader2, Image as ImageIcon } from "lucide-react";
@@ -22,6 +21,9 @@ export default function HeicToJpgPage() {
                 const file = files[i];
 
                 // Simple client side conversion
+                const heic2anyModule = await import("heic2any");
+                const heic2any = heic2anyModule.default;
+
                 const converted = await heic2any({
                     blob: file,
                     toType: "image/jpeg",

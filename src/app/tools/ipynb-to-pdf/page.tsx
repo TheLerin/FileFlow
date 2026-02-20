@@ -6,7 +6,7 @@ import { downloadFileBlob } from "@/lib/image-utils";
 import { Loader2, FileText } from "lucide-react";
 import { marked } from "marked";
 import html2canvas from "html2canvas";
-import jsPDF from "jspdf";
+import { jsPDF } from "jspdf";
 
 export default function IpynbToPdfPage() {
     const [files, setFiles] = useState<File[]>([]);
@@ -119,7 +119,7 @@ export default function IpynbToPdfPage() {
             )}
 
             {/* Hidden Render Target for html2canvas extraction */}
-            <div className="overflow-hidden h-0 w-0 absolute opacity-0 pointer-events-none">
+            <div className="absolute top-[-9999px] left-[-9999px] opacity-0 pointer-events-none">
                 <div
                     ref={renderRef}
                     style={{ width: '800px', padding: '40px', background: '#fff', color: '#333', fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif', lineHeight: 1.6 }}

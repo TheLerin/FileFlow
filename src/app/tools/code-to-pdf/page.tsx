@@ -4,7 +4,7 @@ import { useState, useRef } from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus, vs } from "react-syntax-highlighter/dist/esm/styles/prism";
 import html2canvas from "html2canvas";
-import jsPDF from "jspdf";
+import { jsPDF } from "jspdf";
 import { downloadFileBlob } from "@/lib/image-utils";
 import { Loader2, FileText } from "lucide-react";
 import FileUploadArea from "@/components/ui/FileUploadArea";

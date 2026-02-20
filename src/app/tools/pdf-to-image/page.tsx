@@ -1,16 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import * as pdfjsLib from "pdfjs-dist";
 import JSZip from "jszip";
 import FileUploadArea from "@/components/ui/FileUploadArea";
 import { downloadFileBlob } from "@/lib/image-utils";
 import { Loader2, Image as ImageIcon } from "lucide-react";
-
-// Set worker source dynamically for pdf.js to avoid webpack/Next.js worker build issues
-if (typeof window !== "undefined") {
-    pdfjsLib.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjsLib.version}/pdf.worker.min.mjs`;
-}
 
 export default function PdfToImagePage() {
     const [file, setFile] = useState<File | null>(null);
@@ -29,6 +23,10 @@ export default function PdfToImagePage() {
             setError(null);
 
             const arrayBuffer = await file.arrayBuffer();
+
+            const pdfjsLib = await import("pdfjs-dist");
+            pdfjsLib.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjsLib.version}/pdf.worker.min.mjs`;
+
             const loadingTask = pdfjsLib.getDocument({ data: arrayBuffer });
             const pdfDoc = await loadingTask.promise;
             const numPages = pdfDoc.numPages;
