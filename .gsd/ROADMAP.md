@@ -18,9 +18,9 @@
 **Status**: ✅ Complete
 **Objective**: Implement tools for manipulating existing PDFs using `pdf-lib`. Includes: Merge PDF, Split PDF, Rotate PDF, Add Watermark, Protect PDF, and Remove Password (requires knowing original password).
 
-### Phase 3: Image Operations & Conversion (Canvas API / heic2any)
-**Status**: ⬜ Not Started
-**Objective**: Implement Image Compressor, Resize Image, Crop Image, JPG/PNG to PDF, HEIC to JPG, WebP ↔ JPG, and PDF to JPG/PNG (using pdf.js to render).
+### Phase 3: Image Operations & Conversion
+**Status**: ✅ Complete
+**Objective**: Implement Canvas API tools for image manipulation and conversion. Includes: Image to PDF, PDF to Image, WebP to JPG, Image Compressor, Resize, Crop, HEIC to JPG (`heic2any`).bP ↔ JPG, and PDF to JPG/PNG (using pdf.js to render).
 
 ### Phase 4: Office/Data Document Conversion (SheetJS / Mammoth)
 **Status**: ⬜ Not Started
