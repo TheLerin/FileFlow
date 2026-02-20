@@ -8,7 +8,7 @@ export default function Home() {
       {/* Hero Section */}
       <section className="mb-16 max-w-3xl text-center">
         <h1 className="mb-6 text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl md:text-6xl">
-          Everything you need for <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7B2D8E] to-[#E91E63]">your files.</span>
+          Everything you need for <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#4285F4] via-[#EA4335] to-[#FBBC05]">your </span><span className="text-[#34A853]">files.</span>
         </h1>
         <p className="mx-auto max-w-2xl text-lg text-gray-600 sm:text-xl">
           100% Secure, client-side tools to manipulate, convert, and process your PDFs and images without ever uploading them to a remote server.

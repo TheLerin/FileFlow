@@ -12,9 +12,9 @@ export default function ToolCard({ title, description, href, icon: Icon }: ToolC
     return (
         <Link
             href={href}
-            className="group flex flex-col items-center justify-center rounded-xl border border-gray-200 bg-white p-6 shadow-sm transition-all hover:border-[#7B2D8E] hover:shadow-md active:scale-[0.98]"
+            className="group flex flex-col items-center justify-center rounded-xl border border-gray-200 bg-white p-6 shadow-sm transition-all hover:border-[#4285F4] hover:shadow-md active:scale-[0.98]"
         >
-            <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gray-50 text-[#7B2D8E] transition-colors group-hover:bg-[#7B2D8E]/10">
+            <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gray-50 text-[#4285F4] transition-colors group-hover:bg-[#4285F4]/10">
                 <Icon size={32} strokeWidth={1.5} />
             </div>
             <h3 className="mb-2 text-xl font-semibold text-gray-900">{title}</h3>
