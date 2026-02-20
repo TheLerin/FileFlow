@@ -15,7 +15,7 @@
 **Objective**: Scaffold the Next.js application, setup Tailwind CSS, configure the routing structure for the tool categories, and build the main landing/hub page. Establish the core UI components (buttons, drag-and-drop zones, cards).
 
 ### Phase 2: Core PDF Operations (pdf-lib)
-**Status**: ⬜ Not Started
+**Status**: ✅ Complete
 **Objective**: Implement tools for manipulating existing PDFs using `pdf-lib`. Includes: Merge PDF, Split PDF, Rotate PDF, Add Watermark, Protect PDF, and Remove Password (requires knowing original password).
 
 ### Phase 3: Image Operations & Conversion (Canvas API / heic2any)
