@@ -7,7 +7,9 @@ import {
     LockOpen,
     Merge,
     RotateCw,
-    Scissors
+    Scissors,
+    Smartphone,
+    Repeat
 } from "lucide-react";
 
 export const TOOLS = [
@@ -75,5 +77,19 @@ export const TOOLS = [
         description: "Extract images from PDF or convert pages to images.",
         href: "/tools/pdf-to-image",
         icon: ImageIcon,
+    },
+    {
+        id: "heic-to-jpg",
+        title: "HEIC to JPG",
+        description: "Convert Apple HEIC images to standard JPEGs.",
+        href: "/tools/heic-to-jpg",
+        icon: Smartphone,
+    },
+    {
+        id: "webp-converter",
+        title: "WebP Converter",
+        description: "Convert WebP images into standard PNG or JPG files.",
+        href: "/tools/webp-converter",
+        icon: Repeat,
     },
 ];

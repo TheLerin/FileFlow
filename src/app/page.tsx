@@ -16,10 +16,21 @@ export default function Home() {
       </section>
 
       {/* Tools Grid */}
-      <section className="w-full max-w-6xl">
-        <h2 className="mb-8 text-2xl font-bold text-gray-900 border-b pb-2">PDF Utilities</h2>
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mb-16">
+      {/* PDF Utilities Section */}
+      <section className="w-full max-w-6xl mb-16">
+        <h2 className="mb-6 text-2xl font-bold text-gray-900 border-b pb-2">PDF Utilities</h2>
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {TOOLS.filter(tool => tool.id.includes('pdf') || tool.id === 'add-watermark').map((tool) => (
+            <ToolCard key={tool.id} {...tool} />
+          ))}
+        </div>
+      </section>
+
+      {/* Image Utilities Section */}
+      <section className="w-full max-w-6xl mb-16">
+        <h2 className="mb-6 text-2xl font-bold text-gray-900 border-b pb-2">Image Utilities</h2>
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          {TOOLS.filter(tool => !tool.id.includes('pdf') && tool.id !== 'add-watermark').map((tool) => (
             <ToolCard key={tool.id} {...tool} />
           ))}
         </div>
