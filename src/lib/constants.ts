@@ -15,7 +15,9 @@ import {
     Crop,
     FileSpreadsheet,
     Database,
-    Table2
+    Table2,
+    FileText,
+    CodeXml
 } from "lucide-react";
 
 export const TOOLS = [
@@ -140,5 +142,19 @@ export const TOOLS = [
         description: "Convert messy CSV data blocks safely into modern Excel (.xlsx).",
         href: "/tools/csv-to-excel",
         icon: Table2,
+    },
+    {
+        id: "docx-to-txt",
+        title: "DOCX to TXT",
+        description: "Pull the raw semantic text content cleanly out of Microsoft Word documents.",
+        href: "/tools/docx-to-txt",
+        icon: FileText,
+    },
+    {
+        id: "docx-to-html",
+        title: "DOCX to HTML",
+        description: "Convert heavy Word formatting into semantic Web HTML5 markup.",
+        href: "/tools/docx-to-html",
+        icon: CodeXml,
     },
 ];
