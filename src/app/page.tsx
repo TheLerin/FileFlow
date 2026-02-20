@@ -1,8 +1,30 @@
+import { TOOLS } from "@/lib/constants";
+import ToolCard from "@/components/ui/ToolCard";
+
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center p-24">
-      <h1 className="text-4xl font-bold">Welcome to FileFlow</h1>
-      <p className="mt-4 text-lg text-gray-600">Secure Client-Side Tools</p>
-    </main>
+    <div className="flex flex-col items-center justify-center p-8 md:p-16">
+
+      {/* Hero Section */}
+      <section className="mb-16 max-w-3xl text-center">
+        <h1 className="mb-6 text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl md:text-6xl">
+          Everything you need for <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7B2D8E] to-[#E91E63]">your files.</span>
+        </h1>
+        <p className="mx-auto max-w-2xl text-lg text-gray-600 sm:text-xl">
+          100% Secure, client-side tools to manipulate, convert, and process your PDFs and images without ever uploading them to a remote server.
+        </p>
+      </section>
+
+      {/* Tools Grid */}
+      <section className="w-full max-w-6xl">
+        <h2 className="mb-8 text-2xl font-bold text-gray-900 border-b pb-2">PDF Utilities</h2>
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mb-16">
+          {TOOLS.filter(tool => tool.id.includes('pdf') || tool.id === 'add-watermark').map((tool) => (
+            <ToolCard key={tool.id} {...tool} />
+          ))}
+        </div>
+      </section>
+
+    </div>
   );
 }
