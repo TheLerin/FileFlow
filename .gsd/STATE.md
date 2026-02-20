@@ -1,11 +1,11 @@
 ## Current Position
-- **Phase**: 4 (completed)
-- **Task**: All tasks complete
-- **Status**: Verified
+- **Phase**: 5
+- **Task**: Executing Wave 1 (Performance & PWA)
+- **Status**: Configuring static build requirements
 
 ## Last Session Summary
-Phase 4 completed and verified. `sheetjs` and `mammoth` were successfully utilized to extract raw text, HTML, and CSV content from locked Microsoft Office payloads locally in the browser runtime.
+Phase 4 completed and verified. Transitioned to Phase 5.
 
 ## Next Steps
-1. Proceed to Phase 5
-2. /plan 5
+1. Finish Wave 1 (export, manifest).
+2. Execute Wave 2 (global Footer).
