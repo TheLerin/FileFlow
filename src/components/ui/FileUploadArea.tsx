@@ -30,14 +30,9 @@ export default function FileUploadArea({
         (e: React.DragEvent) => {
             e.preventDefault();
             setIsDragging(false);
-
             const files = Array.from(e.dataTransfer.files);
             if (files.length > 0) {
-                if (!multiple && files.length > 1) {
-                    onFileSelect([files[0]]);
-                } else {
-                    onFileSelect(files);
-                }
+                onFileSelect(multiple ? files : [files[0]]);
             }
         },
         [onFileSelect, multiple]
@@ -48,7 +43,6 @@ export default function FileUploadArea({
             if (e.target.files && e.target.files.length > 0) {
                 onFileSelect(Array.from(e.target.files));
             }
-            // Reset input value so the same file can be selected again if needed
             e.target.value = "";
         },
         [onFileSelect]
@@ -59,29 +53,81 @@ export default function FileUploadArea({
             onDragOver={handleDragOver}
             onDragLeave={handleDragLeave}
             onDrop={handleDrop}
-            className={`relative flex w-full max-w-2xl cursor-pointer flex-col items-center justify-center rounded-2xl border-2 border-dashed p-12 text-center transition-all ${isDragging
-                    ? "border-[#7B2D8E] bg-[#7B2D8E]/5"
-                    : "border-gray-300 bg-gray-50 hover:border-[#7B2D8E]/50 hover:bg-gray-100"
-                }`}
+            style={{
+                position: "relative",
+                width: "100%",
+                maxWidth: "640px",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+                padding: "48px 32px",
+                textAlign: "center",
+                cursor: "pointer",
+                borderRadius: "16px",
+                border: `2px dashed ${isDragging ? "rgba(66,133,244,0.6)" : "rgba(255,255,255,0.10)"}`,
+                background: isDragging
+                    ? "rgba(66,133,244,0.06)"
+                    : "rgba(255,255,255,0.02)",
+                transition: "all 0.25s ease",
+                boxShadow: isDragging ? "0 0 40px -10px rgba(66,133,244,0.4)" : "none",
+            }}
         >
             <input
                 type="file"
                 multiple={multiple}
                 accept={accept}
                 onChange={handleFileInput}
-                className="absolute inset-0 h-full w-full cursor-pointer opacity-0"
+                style={{
+                    position: "absolute", inset: 0,
+                    width: "100%", height: "100%",
+                    opacity: 0, cursor: "pointer",
+                }}
                 title="Upload Files"
             />
 
-            <div className="mb-4 rounded-full bg-white p-4 shadow-sm">
-                <UploadCloud className="h-8 w-8 text-[#7B2D8E]" />
+            {/* Icon */}
+            <div style={{
+                width: "64px", height: "64px",
+                borderRadius: "16px",
+                background: isDragging ? "rgba(66,133,244,0.2)" : "rgba(255,255,255,0.04)",
+                border: `1px solid ${isDragging ? "rgba(66,133,244,0.4)" : "rgba(255,255,255,0.10)"}`,
+                display: "flex", alignItems: "center", justifyContent: "center",
+                marginBottom: "20px",
+                transition: "all 0.25s ease",
+                boxShadow: isDragging ? "0 0 24px -6px rgba(66,133,244,0.5)" : "none",
+            }}>
+                <UploadCloud size={28} color={isDragging ? "#4285F4" : "rgba(255,255,255,0.4)"} />
             </div>
-            <h3 className="mb-2 text-xl font-semibold text-gray-900">
-                Choose {multiple ? "files" : "a file"} or drag & drop it here
+
+            <h3 style={{
+                fontSize: "1rem", fontWeight: 700,
+                color: "rgba(255,255,255,0.85)",
+                marginBottom: "8px", letterSpacing: "-0.01em",
+            }}>
+                Drop {multiple ? "files" : "a file"} here, or click to browse
             </h3>
-            <p className="text-sm text-gray-500">
-                100% Secure. Files are processed locally on your device and never leave your browser.
+            <p style={{
+                fontSize: "0.8rem",
+                color: "rgba(255,255,255,0.3)",
+                lineHeight: 1.6,
+            }}>
+                All processing happens locally on your device.
+                <br />No uploads. No servers. Complete privacy.
             </p>
+
+            {accept !== "*" && (
+                <div style={{
+                    marginTop: "16px", padding: "4px 12px",
+                    borderRadius: "999px",
+                    background: "rgba(66,133,244,0.08)",
+                    border: "1px solid rgba(66,133,244,0.2)",
+                    fontSize: "0.72rem", color: "rgba(66,133,244,0.8)",
+                    fontWeight: 600, letterSpacing: "0.05em",
+                }}>
+                    Accepts: {accept}
+                </div>
+            )}
         </div>
     );
 }
