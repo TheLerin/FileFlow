@@ -30,7 +30,7 @@ export default function Home() {
       <section className="w-full max-w-6xl mb-16">
         <h2 className="mb-6 text-2xl font-bold text-gray-900 border-b pb-2">Image Utilities</h2>
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {TOOLS.filter(tool => !tool.id.includes('pdf') && tool.id !== 'add-watermark' && !['excel-to-csv', 'excel-to-json', 'csv-to-excel', 'docx-to-txt', 'docx-to-html'].includes(tool.id)).map((tool) => (
+          {TOOLS.filter(tool => !tool.id.includes('pdf') && tool.id !== 'add-watermark' && !['excel-to-csv', 'excel-to-json', 'csv-to-excel', 'docx-to-txt', 'docx-to-html', 'code-to-pdf', 'code-to-image', 'ipynb-to-pdf', 'ipynb-to-html', 'ipynb-to-md', 'ipynb-to-py', 'merge-ipynb'].includes(tool.id)).map((tool) => (
             <ToolCard key={tool.id} {...tool} />
           ))}
         </div>
@@ -41,6 +41,16 @@ export default function Home() {
         <h2 className="mb-6 text-2xl font-bold text-gray-900 border-b pb-2">Office & Data Utilities</h2>
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {TOOLS.filter(tool => ['excel-to-csv', 'excel-to-json', 'csv-to-excel', 'docx-to-txt', 'docx-to-html'].includes(tool.id)).map((tool) => (
+            <ToolCard key={tool.id} {...tool} />
+          ))}
+        </div>
+      </section>
+
+      {/* Developer & Data Science Section */}
+      <section className="w-full max-w-6xl mb-16">
+        <h2 className="mb-6 text-2xl font-bold text-gray-900 border-b pb-2">Developer & Data Science</h2>
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          {TOOLS.filter(tool => ['code-to-pdf', 'code-to-image', 'ipynb-to-pdf', 'ipynb-to-html', 'ipynb-to-md', 'ipynb-to-py', 'merge-ipynb'].includes(tool.id)).map((tool) => (
             <ToolCard key={tool.id} {...tool} />
           ))}
         </div>

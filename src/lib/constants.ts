@@ -17,7 +17,9 @@ import {
     Database,
     Table2,
     FileText,
-    CodeXml
+    CodeXml,
+    Code,
+    Terminal
 } from "lucide-react";
 
 export const TOOLS = [
@@ -156,5 +158,20 @@ export const TOOLS = [
         description: "Convert heavy Word formatting into semantic Web HTML5 markup.",
         href: "/tools/docx-to-html",
         icon: CodeXml,
+    },
+    // Developer & Data Science Utilities
+    {
+        id: "code-to-pdf",
+        title: "Code to PDF",
+        description: "Export beautifully formatted code specifically wrapped for A4 PDF documentation natively.",
+        href: "/tools/code-to-pdf",
+        icon: Code,
+    },
+    {
+        id: "code-to-image",
+        title: "Code snippet to Image",
+        description: "Generate beautiful, crisp syntax-highlighted pictures of your code.",
+        href: "/tools/code-to-image",
+        icon: Terminal,
     },
 ];

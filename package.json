@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "heic2any": "^0.0.4",
+    "html2canvas": "^1.4.1",
+    "jspdf": "^4.2.0",
     "jszip": "^3.10.1",
     "lucide-react": "^0.575.0",
     "mammoth": "^1.11.0",
@@ -19,6 +21,7 @@
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "react-image-crop": "^11.0.10",
+    "react-syntax-highlighter": "^16.1.0",
     "xlsx": "^0.18.5"
   },
   "devDependencies": {
@@ -26,6 +29,7 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@types/react-syntax-highlighter": "^15.5.13",
     "babel-plugin-react-compiler": "1.0.0",
     "eslint": "^9",
     "eslint-config-next": "16.1.6",
