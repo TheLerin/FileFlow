@@ -9,7 +9,10 @@ import {
     RotateCw,
     Scissors,
     Smartphone,
-    Repeat
+    Repeat,
+    Minimize2,
+    Maximize,
+    Crop
 } from "lucide-react";
 
 export const TOOLS = [
@@ -91,5 +94,26 @@ export const TOOLS = [
         description: "Convert WebP images into standard PNG or JPG files.",
         href: "/tools/webp-converter",
         icon: Repeat,
+    },
+    {
+        id: "compress-image",
+        title: "Compress Image",
+        description: "Reduce the file size of your images via JPEG compression locally.",
+        href: "/tools/compress-image",
+        icon: Minimize2,
+    },
+    {
+        id: "resize-image",
+        title: "Resize Image",
+        description: "Change the dimensions of your image precisely.",
+        href: "/tools/resize-image",
+        icon: Maximize,
+    },
+    {
+        id: "crop-image",
+        title: "Crop Image",
+        description: "Visually trim the edges off your image.",
+        href: "/tools/crop-image",
+        icon: Crop,
     },
 ];
