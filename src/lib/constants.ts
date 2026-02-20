@@ -12,7 +12,10 @@ import {
     Repeat,
     Minimize2,
     Maximize,
-    Crop
+    Crop,
+    FileSpreadsheet,
+    Database,
+    Table2
 } from "lucide-react";
 
 export const TOOLS = [
@@ -115,5 +118,27 @@ export const TOOLS = [
         description: "Visually trim the edges off your image.",
         href: "/tools/crop-image",
         icon: Crop,
+    },
+    // Office & Data Utilities
+    {
+        id: "excel-to-csv",
+        title: "Excel to CSV",
+        description: "Extract the primary spreadsheet of an Excel file into a raw CSV.",
+        href: "/tools/excel-to-csv",
+        icon: FileSpreadsheet,
+    },
+    {
+        id: "excel-to-json",
+        title: "Excel to JSON",
+        description: "Convert grid data rows from an Excel file into a JSON document.",
+        href: "/tools/excel-to-json",
+        icon: Database,
+    },
+    {
+        id: "csv-to-excel",
+        title: "CSV to Excel",
+        description: "Convert messy CSV data blocks safely into modern Excel (.xlsx).",
+        href: "/tools/csv-to-excel",
+        icon: Table2,
     },
 ];
