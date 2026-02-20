@@ -19,7 +19,10 @@ import {
     FileText,
     CodeXml,
     Code,
-    Terminal
+    Terminal,
+    FileCode,
+    FileDown,
+    Globe
 } from "lucide-react";
 
 export const TOOLS = [
@@ -173,5 +176,40 @@ export const TOOLS = [
         description: "Generate beautiful, crisp syntax-highlighted pictures of your code.",
         href: "/tools/code-to-image",
         icon: Terminal,
+    },
+    {
+        id: "ipynb-to-pdf",
+        title: "IPYNB to PDF",
+        description: "Completely export your Notebooks into clean documents.",
+        href: "/tools/ipynb-to-pdf",
+        icon: FileText,
+    },
+    {
+        id: "ipynb-to-html",
+        title: "IPYNB to HTML",
+        description: "Export Jupyter notebooks into beautifully styled offline webpages.",
+        href: "/tools/ipynb-to-html",
+        icon: Globe,
+    },
+    {
+        id: "ipynb-to-md",
+        title: "IPYNB to Markdown",
+        description: "Wrap code cells and extract structural text directly into Markdown formatting.",
+        href: "/tools/ipynb-to-md",
+        icon: FileDown,
+    },
+    {
+        id: "ipynb-to-py",
+        title: "IPYNB to Python",
+        description: "Unpack Notebooks and extract a clean, raw `.py` script.",
+        href: "/tools/ipynb-to-py",
+        icon: FileCode,
+    },
+    {
+        id: "merge-ipynb",
+        title: "Merge Notebooks",
+        description: "Combine multiple `.ipynb` notebooks into one single master notebook instantly.",
+        href: "/tools/merge-ipynb",
+        icon: Merge,
     },
 ];
